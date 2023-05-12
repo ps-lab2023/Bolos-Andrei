@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @Entity
@@ -19,9 +21,8 @@ public class User {
     private String email;
     private String password;
     private Boolean admin;
-//    private String telephone; // 07beaLapte
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "id")
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "id")
     private List<Photo> photoList;
 
 }

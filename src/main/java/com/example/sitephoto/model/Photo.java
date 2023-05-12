@@ -21,6 +21,8 @@ public class Photo {
     private String description;
 //    private Date data;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private User user;
+    @Column(name = "imagedata", length = 1000)
+    private byte[] imageData;
 }
