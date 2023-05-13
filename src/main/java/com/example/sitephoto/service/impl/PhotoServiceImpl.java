@@ -72,8 +72,10 @@ public class PhotoServiceImpl implements PhotoService {
         List<Photo> photoList = (List<Photo>) photoRepository.findAll();
         List<PhotoDTO> photoDTOList = new ArrayList<PhotoDTO>();
         for (Photo photo : photoList) {
-            if(photo.getId()>=threshold){
-                photoDTOList.add(PhotoMapper.mapModelToDto(photo));
+            if (photo.getUser() != null) {
+                if (photo.getUser().getId().equals(threshold)) {
+                    photoDTOList.add(PhotoMapper.mapModelToDto(photo));
+                }
             }
         }
         return photoDTOList;
